@@ -20,6 +20,6 @@ echo "</table>";
 mysqli_error($con);
 mysqli_close($con);
 ?>
-<input type="button" value="INICIO" id="button" onClick="location.href='home.html'">
+<input type="button" value="INICIO" id="button" onClick="location.href='index.php'">
 <input type="button" value="LISTA" id="button" onClick="location.href='Lista.php'">
 <input type="button" value="ELIMINAR" id="button" onClick="location.href='Eliminar.php'">
