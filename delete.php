@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html>
-<head><title> Empresa </title></head>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+
 <body>
-<label> Ingrese los sig datos: </label>
-<form name="frm" method="POST" action="confirm-delete.php"><br>
-RFC: <input type="text" name="rfc"><br>
-
-<input type="submit" value="Eliminar"><br>
-
-</form>
-<input type="button" value="INICIO" id="button" onClick="location.href='index.php'">
-<input type="button" value="LISTA" id="button" onClick="location.href='list.php'">
-<input type="button" value="ELIMINAR" id="button" onClick="location.href='delete.php'">
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-12">
+                <fieldset>
+                    <legend>Eliminar empresa</legend>
+                    <form action="confirm-delete.php" method="POST">
+                        <p>La eliminación de un registro es una acción permanente que no podrá revertirse en el futuro</p>
+                        <div class="form-group mb-3">
+                            <label for="rfc">RFC:</label>
+                            <input type="number" name="rfc" id="rfc" class="form-control" required autofocus autocomplete="off">
+                        </div>
+                        <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+                        <a href="index.php" class="btn btn-primary">Agregar</a>
+                        <a href="list.php" class="btn btn-info">Ver lista</a>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
