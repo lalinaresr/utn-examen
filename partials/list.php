@@ -13,7 +13,7 @@
         <tbody>
             <?php foreach (mysqli_fetch_all($data, MYSQLI_ASSOC) as $key => $value) : ?>
                 <tr>
-                    <td><?= $value['rfc']; ?></td>
+                    <td><a href="delete.php?company=<?= $value['rfc']; ?>"><?= $value['rfc']; ?></a></td>
                     <td><?= $value['business_name']; ?></td>
                     <td><?= $value['commercial_value']; ?></td>
                 </tr>
