@@ -1,13 +1,12 @@
 <?php
+require_once 'connection.php';
 
-include_once 'connection.php';
-
-$rCompanies = mysqli_fetch_all(mysqli_query($db, 'SELECT * FROM empresas'), MYSQLI_ASSOC);
+$data = mysqli_query($db, 'SELECT * FROM empresas ORDER BY id DESC');
 
 mysqli_error($db);
 mysqli_close($db);
 
-$title = 'Listado';
+$title = 'Empresas - Listado';
 
 include_once 'partials/header.php';
 include_once 'partials/list.php';

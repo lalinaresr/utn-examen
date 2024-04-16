@@ -1,8 +1,8 @@
-<?php if (count($rCompanies) > 0) : ?>
-    <table class="table table-condensed table-bordered table-responsive table-dark table-hover">
+<?php if (mysqli_num_rows($data) > 0) : ?>
+    <table class="table table-condensed table-bordered table-responsive table-hover">
         <thead>
             <tr>
-                <th colspan="3" class="bg-secondary text-white text-center">Listado de empresas</th>
+                <th colspan="3" class="bg-info text-white text-center">Listado de empresas</th>
             </tr>
             <tr>
                 <th>RFC</th>
@@ -11,11 +11,11 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($rCompanies as $key => $company) : ?>
+            <?php foreach (mysqli_fetch_all($data, MYSQLI_ASSOC) as $key => $value) : ?>
                 <tr>
-                    <td><?= $company['rfc']; ?></td>
-                    <td><?= $company['business_name']; ?></td>
-                    <td><?= $company['commercial_value']; ?></td>
+                    <td><?= $value['rfc']; ?></td>
+                    <td><?= $value['business_name']; ?></td>
+                    <td><?= $value['commercial_value']; ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

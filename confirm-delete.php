@@ -1,13 +1,12 @@
 <?php
+require_once 'connection.php';
 
-include_once 'connection.php';
+$data = mysqli_query($db, sprintf("SELECT * FROM empresas WHERE rfc = '%s' LIMIT 1", $_POST['rfc']));
 
-$rCompanies = mysqli_query($db, sprintf("SELECT * FROM empresas WHERE rfc = '%s'", $_POST['rfc']));
+if (mysqli_num_rows($data) > 0) {
+    $result = mysqli_query($db, sprintf("DELETE FROM empresas WHERE rfc = '%s'", $_POST['rfc']));
 
-if (mysqli_num_rows($rCompanies) > 0) {
-    $rCompany = mysqli_query($db, sprintf("DELETE FROM empresas WHERE rfc = '%s'", $_POST['rfc']));
-
-    if ($rCompany) {
+    if ($result) {
         $response = ['type' => 'success', 'text' => 'La empresa fue eliminada con éxito'];
     } else {
         $response = ['type' => 'danger', 'text' => 'Lamentamos informar que ha ocurrido un error interno, inténtelo nuevamente'];
@@ -19,7 +18,7 @@ if (mysqli_num_rows($rCompanies) > 0) {
 mysqli_error($db);
 mysqli_close($db);
 
-$title = 'Respuesta';
+$title = 'Respuesta | Eliminar';
 
 include_once 'partials/header.php';
 include_once 'partials/confirm-delete.php';

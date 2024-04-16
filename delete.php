@@ -1,6 +1,6 @@
 <?php
 
-$title = 'Eliminar';
+$title = 'Empresas - Eliminar';
 
 include_once 'partials/header.php';
 include_once 'partials/delete.php';
